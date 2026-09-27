@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column; gap: 2.25rem; padding-bottom: 3.5rem; max-width: 900px;">
+
+  <!-- HEADER -->
+  <div>
+    <div class="glass-pill" style="color: var(--pastel-purple-deep); border-color: rgba(139, 92, 246, 0.4); margin-bottom: 0.5rem;">
+      <span style="color: #8B5CF6; font-weight: 800;">⚙️ Model &amp; Workspace Settings</span>
+      <span style="color: var(--navy-300);">•</span>
+      <span>Gemini Flash 2.5 Active</span>
+    </div>
+    <h1 style="font-size: 2.25rem; font-weight: 900; font-family: var(--font-display); color: var(--navy-900);">
+      Account &amp; Model Configuration
+    </h1>
+    <p style="font-size: 0.9rem; color: var(--navy-600); max-width: 600px; margin-top: 0.25rem;">
+      Manage your business intelligence profile, semantic retrieval parameters, and SQLite vector store configuration.
+    </p>
+  </div>
+
+  <!-- PROFILE 3D CARD -->
+  <div class="glass-card-static" style="padding: 2.25rem; display: flex; flex-direction: column; gap: 1.5rem; box-shadow: var(--shadow-3d-card);">
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <div class="logo-cube-3d" style="width: 68px; height: 68px; font-size: 1.8rem;">
+        EV
+      </div>
+      <div>
+        <h3 style="font-size: 1.35rem; font-weight: 900; color: var(--navy-900); font-family: var(--font-display);">
+          {{ user.name if user else 'Eleanor Vance' }}
+        </h3>
+        <p style="font-size: 0.85rem; color: #7C3AED; font-weight: 800;">{{ user.role if user else 'Senior Business Intelligence Strategist' }}</p>
+        <p style="font-size: 0.78rem; color: var(--navy-400); margin-top: 0.2rem;">{{ user.email if user else 'e.vance@enterprise-bi.ai' }} • {{ user.organization if user else 'Acuity Global Enterprises' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RAG FLASH 2.5 MODEL PARAMETERS -->
+  <div class="glass-card-static" style="padding: 2.25rem; display: flex; flex-direction: column; gap: 1.5rem;">
+    <div style="border-bottom: 1px solid var(--navy-200); padding-bottom: 0.85rem;">
+      <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--navy-900);">
+        RAG Flash 2.5 &amp; Vector Store Parameters
+      </h3>
+      <p style="font-size: 0.78rem; color: var(--navy-500);">
+        Configured for strict zero-hallucination document reasoning and exact evidence verification
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.35rem; font-size: 0.85rem;">
+      <div style="background: var(--navy-50); padding: 1.35rem; border-radius: 1rem; border: 1px solid var(--navy-200);">
+        <strong style="color: var(--navy-900); display: block;">Base Model:</strong>
+        <span style="color: #7C3AED; font-weight: 800; font-size: 1rem;">Google Gemini 2.5 Flash</span>
+        <p style="font-size: 0.72rem; color: var(--navy-500); margin-top: 0.35rem;">Ultra low-latency grounding with high-accuracy document lineage.</p>
+      </div>
+
+      <div style="background: var(--navy-50); padding: 1.35rem; border-radius: 1rem; border: 1px solid var(--navy-200);">
+        <strong style="color: var(--navy-900); display: block;">Embedding Model:</strong>
+        <span style="color: #0284C7; font-weight: 800; font-size: 1rem;">TF-IDF + Cosine Vectors</span>
+        <p style="font-size: 0.72rem; color: var(--navy-500); margin-top: 0.35rem;">Dense multi-gram vector index stored directly in SQLite database.</p>
+      </div>
+
+      <div style="background: var(--navy-50); padding: 1.35rem; border-radius: 1rem; border: 1px solid var(--navy-200);">
+        <strong style="color: var(--navy-900); display: block;">Verification Threshold:</strong>
+        <span style="color: #059669; font-weight: 800; font-size: 1rem;">Cosine Sim &gt; 0.90</span>
+        <p style="font-size: 0.72rem; color: var(--navy-500); margin-top: 0.35rem;">Rejects unsupported queries to ensure 100% citable facts.</p>
+      </div>
+
+      <div style="background: var(--navy-50); padding: 1.35rem; border-radius: 1rem; border: 1px solid var(--navy-200);">
+        <strong style="color: var(--navy-900); display: block;">Multi-Modal Ingestion:</strong>
+        <span style="color: #D97706; font-weight: 800; font-size: 1rem;">2 GB Max File Capacity</span>
+        <p style="font-size: 0.72rem; color: var(--navy-500); margin-top: 0.35rem;">Supports PDF, DOCX, video, audio, and visual image OCR.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
